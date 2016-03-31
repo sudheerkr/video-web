@@ -1,0 +1,22 @@
+{
+  "name": "imax",
+  "description": "This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular) version 0.15.1.",
+  "main": "gulpfile.js",
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.2.0",
+    "angular": "^1.5.2",
+    "angular-animate": "^1.5.2",
+    "angular-ui-router": "^0.2.18",
+    "angular-route": "^1.5.2"
+  }
+}
