@@ -9,20 +9,20 @@
  * Main module of the application.
  */
 angular
-.module('imaxApp', ['ngRoute','ngAnimate'])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+.module('imaxApp', ['ui.router','ngAnimate'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/state1');
+    $stateProvider
+      .state('state1', {
+        url: '/state1',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
+      .state('state2', {
+        url: '/state2',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
   });
