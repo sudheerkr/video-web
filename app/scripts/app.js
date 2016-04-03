@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-.module('imaxApp', ['ui.router','ngAnimate'])
+.module('imaxApp', ['ui.router'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/state1');
     $stateProvider
