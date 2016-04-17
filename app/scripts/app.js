@@ -35,12 +35,12 @@ angular
       templateUrl: 'views/myCustomer.html'
     };
   })
-  .directive('timeNow', ['$interval', 'dateFilter', function($interval, dateFilter){
+  .directive('timeNow', ['$interval', '$filter', function($interval, $filter){
     function link(scope, element, attrs){
       var format, timeoutId;
 
       var updateTime = function(){
-        element.text(dateFilter(new Date(), format));
+        element.text($filter('date')(new Date(), format));
       };
       // $watch
       scope.$watch(attrs.timeNow, function(value){
