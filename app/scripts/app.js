@@ -25,4 +25,13 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       });
+  })
+  .directive('myCustomer', function(){
+    return {
+      restrict: 'E',
+      scope: {
+        customerInfo: '=info'
+      },
+      templateUrl: 'views/myCustomer.html'
+    };
   });
