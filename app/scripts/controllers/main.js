@@ -15,4 +15,5 @@ angular.module('imaxApp')
       'Karma'
     ];
     $scope.niome = {name:'jjfsjskkjks', address: 'jhsdka jdksj jdkjd'};
+    $scope.format = 'M/d/yy h:mm:ss a';
   });

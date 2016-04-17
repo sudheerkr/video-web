@@ -34,4 +34,30 @@ angular
       },
       templateUrl: 'views/myCustomer.html'
     };
-  });
+  })
+  .directive('timeNow', ['$interval', 'dateFilter', function($interval, dateFilter){
+    function link(scope, element, attrs){
+      var format, timeoutId;
+
+      var updateTime = function(){
+        element.text(dateFilter(new Date(), format));
+      };
+      // $watch
+      scope.$watch(attrs.timeNow, function(value){
+        format = value;
+        updateTime();
+      });
+      //
+      element.on('$destroy', function(){
+        $interval.cancil(timeoutId);
+      });
+
+      // start ui update proccess
+      timeoutId = $interval(function(){
+        updateTime();
+      }, 1000);
+    }
+    return {
+      link: link
+    };
+  }]);
