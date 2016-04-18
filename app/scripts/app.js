@@ -60,4 +60,14 @@ angular
     return {
       link: link
     };
-  }]);
+  }])
+  .directive('dilogBox', function(){
+    return {
+      restrict: 'E',
+      scope: {
+        close: '&onClose'
+      },
+      transclude: true,
+      templateUrl: 'views/dilogBox.html',
+    };
+  });
