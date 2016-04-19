@@ -70,4 +70,43 @@ angular
       transclude: true,
       templateUrl: 'views/dilogBox.html',
     };
+  })
+  .directive('myTabs', function(){
+    return {
+      restrict: 'E',
+      scope: {},
+      transclude: true,
+      controller: ['$scope', function($scope){
+        var words = $scope.words = [];
+
+        $scope.select = function(word){
+          angular.forEach($scope.words, function(word){
+            word.selected = false;
+          });
+          word.selected = true;
+        };
+        
+        this.addPane= function(word){
+          if (words.length === 0) {
+            $scope.select(word);
+          }
+          $scope.words.push(word);
+        };
+      }],
+      templateUrl: 'views/myTabs.html'
+    };
+  })
+  .directive('myPane', function(){
+    return {
+      require: '^^myTabs',
+      restrict: 'E',
+      transclude: true,
+      scope: {
+        title: '@'
+      },
+      link: function(scope, element, attrs, controller){
+        controller.addPane(scope);
+      },
+      templateUrl: 'views/myPane.html'
+    };
   });
