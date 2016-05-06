@@ -24,6 +24,12 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .state1('/state3', {
+        url: 'state3',
+        templateUrl: 'views/about.html',
+        controller: 'Centre',
+        controllerAs: 'centre'
       });
   })
   .directive('myCustomer', function(){
